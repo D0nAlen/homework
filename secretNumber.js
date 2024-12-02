@@ -8,7 +8,7 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-const randomNumber = getRandomNumber(1, 100);
+const randomNumber = getRandomNumber(min, max);
 console.log("Загаданное число: " + randomNumber);
 
 function checkNumber() {
