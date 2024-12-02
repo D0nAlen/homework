@@ -1,3 +1,7 @@
+let min = 1;
+let max = 100;
+let mid;
+
 function getRandomNumber(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -7,23 +11,21 @@ function getRandomNumber(min, max) {
 const randomNumber = getRandomNumber(1, 100);
 console.log("Загаданное число: " + randomNumber);
 
-let resultNumber = Math.floor((1 + 100) / 2);
-
 function checkNumber() {
-    console.log("Компьютер 2: Пробую число " + resultNumber);
-    if (resultNumber < randomNumber) {
-        console.log("Компьютер 1: Меньше.");
-        resultNumber = getRandomNumber(resultNumber + 1, 100);
-        checkNumber();
-    }
-    else if (resultNumber > randomNumber) {
-        console.log("Компьютер 1: Больше.");
-        resultNumber = getRandomNumber(1, resultNumber - 1);
-        checkNumber();
-    }
-    else if (resultNumber == randomNumber) {
-        console.log("Компьютер 1: Угадал!");
-        return;
+    while (mid != randomNumber) {
+        mid = Math.floor((min + max) / 2);
+        console.log("Компьютер 2: Пробую число " + mid);
+        if (mid > randomNumber) {
+            console.log("Компьютер 1: Меньше.");
+            max = mid;
+        }
+        else if (mid < randomNumber) {
+            console.log("Компьютер 1: Больше.");
+            min = mid;
+        }
+        else {
+            console.log("Компьютер 1: Угадал!");
+        }
     }
 }
 
